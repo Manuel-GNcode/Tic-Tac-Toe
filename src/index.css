@@ -1,0 +1,146 @@
+:root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+
+  color: var(--primary);
+  background-color: var(--secundary);
+
+  text-rendering: optimizeLegibility;
+
+  --primary: #eee;
+  --secundary: #242424;
+  --details: #ff0000;
+  --details-two: #00ff00;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+.icon-x {
+  fill: var(--details);
+}
+.icon-o {
+  fill: var(--details-two);
+}
+.board {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+}
+.logo {
+  margin-bottom: 25px;
+}
+.logo b {
+  color: var(--details);
+}
+
+.board .game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  background-color: var(--primary);
+  margin-top: 25px;
+}
+
+.btn-nav {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.turn {
+  display: flex;
+  justify-content: center;
+  margin: 25px auto 0;
+  width: fit-content;
+  position: relative;
+  border-radius: 10px;
+}
+
+.turn .square,
+.winner .square {
+  width: 70px;
+  height: 70px;
+  pointer-events: none;
+}
+
+.square.is-selected-x {
+  border: 2px solid var(--details);
+  border-radius: 5px;
+}
+.square.is-selected-o {
+  border: 2px solid var(--details-two);
+  border-radius: 5px;
+}
+
+.winner {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.winner .text {
+  background: var(--secundary) ;
+  height: 200px;
+  width: 300px;
+  border: 2px solid var(--primary);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  opacity: .7;
+}
+
+.winner .win {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 48px;
+  background-color: var(--secundary);
+}
+
+.btn {
+  padding: 10px 15px;
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  width: fit-content;
+  border-radius: 5px;
+  transition: 0.2s;
+  font-weight: bold;
+  cursor: pointer;
+}
+.vs-player, .vs-bot {
+  padding: 10px 50px;
+}
+.board button:hover {
+  background: var(--details);
+}
+.hide {
+  display: none;
+}
